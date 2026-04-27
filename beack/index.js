@@ -69,13 +69,28 @@ app.listen(PORT, () => {
 
 app.get('/api/main', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM post join catagory ON post.id_catagory = catagory.id_catagory join users on post.id_user = users.id_user')
+        const result = await pool.query('SELECT * FROM post join catagory ON post.id_catagory = catagory.id_catagory join users on post.id_user = users.id')
         res.json(result.rows)
     } catch (error) {
         res.status(500).json({ error: `Server error: ${error.message}` })
     }
 })
-
+app.get('/api/getcat', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM catagory')
+        res.json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: `Server error: ${error.message}` })
+    }
+})
+app.get('/api/getid:id', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM post join catagory ON post.id_catagory = catagory.id_catagory join users on post.id_user = users.id WHERE id = 1')
+        res.json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: `Server error: ${error.message}` })
+    }
+})
 // app.delete('/api/delete/:id', authenticateToken, authorizeRoles('admin'), async (req, res) => {
 //     try {
 //         await pool.query('DELETE FROM catalog_items WHERE id = $1', [req.params.id])

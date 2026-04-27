@@ -15,6 +15,8 @@ export default function Home() {
   const [price, setPrice] = useState('')
   const [message,setMessage] = useState('')
   const [data, setData] = useState([])
+  const [datai, setDatai] = useState([])
+  const [datacat, setDatacat] = useState([])
   const [oldPrice,setOldPrice] = useState('')
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -29,15 +31,26 @@ useEffect(() => {
   .then(data => setData(data))
 }, [])
 
+useEffect(() => {
+  fetch('http://localhost:3000/api/getcat')
+  .then(res => res.json())
+  .then(datacat => setDatacat(datacat))
+}, [])
+useEffect(() => {
+  fetch('http://localhost:3000/api/getid:1')
+  .then(res => res.json())
+  .then(datai => setDatai(datai))
+}, [])
+
    return (
     <>
         <div className={mt.post} style={{ backgroundImage: `url(${art1})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',}}>
-            {data.map((item) => (
+            {datai.map((item) => (
                 <div key={item.id}>
                     <ul>
-                        <li className={mt.on}>POSTED ON {item.id_catagory}</li>
+                        <li className={mt.on}>POSTED ON {item.name_catagory}</li>
                         <li><h1>{item.tittle}</h1></li>
-                        <li><p>By {item.id_user} |  {item.date} </p></li>
+                        <li><p>By {item.user_name} |  {item.date} </p></li>
                         <li><p>{item.text}</p></li>
                         <li><button>Read More</button></li>
                     </ul>
@@ -58,7 +71,7 @@ useEffect(() => {
                 {data.map((item) => (
                 <div key={item.id}>
                     <ul>
-                        <li><img src={art1} alt="" /></li>
+                        <li><img src={item.img} alt="" /></li>
                         <li><p className={mt.by}>By {item.id_user} |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                         <li><p>{item.text}</p></li>
@@ -103,27 +116,14 @@ useEffect(() => {
             
             <section>
                  <h1>Choose A Catagory</h1>
-                 <div className={mt.orii}>
-                    <div>
-                        <img src={bus} alt="" />
-                        <h3>Business</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                 <div  className={mt.orii}>
+                     {datacat.map((item) => (
+                    <div className={mt.catka} key={item.id}>
+                        <img src={item.imgcat} alt="" />
+                        <h3>{item.name_catagory}</h3>
+                        <p>{item.description}</p>
                     </div>
-                    <div>
-                        <img src={star} alt="" />
-                        <h3>Startup</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                    </div>
-                    <div>
-                        <img src={eco} alt="" />
-                        <h3>Economy</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                    </div>
-                    <div>
-                        <img src={tech} alt="" />
-                        <h3>Technology</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                    </div>
+                    ))}
                 </div>
             </section>
          </div>
