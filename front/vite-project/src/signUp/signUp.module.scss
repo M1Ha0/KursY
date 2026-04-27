@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.cont{
+    width: 100vw;
+    height: 50vh;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
