@@ -1,7 +1,7 @@
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import mt from './home.module.scss'
-import art1 from '../home/assets/Homeero.png'
+import art1 from '../home/assets/art1.png'
 import eco from '../home/assets/eco.png'
 import bus from '../home/assets/bus.png'
 import star from '../home/assets/star.png'
@@ -44,20 +44,20 @@ useEffect(() => {
 
    return (
     <>
-        <div className={mt.post} style={{ backgroundImage: `url(${art1})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',}}>
-            {datai.map((item) => (
+    {datai.map((item) => (
+        <div className={mt.post} style={{ backgroundImage: `url(${item.img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',}}>
+            
                 <div key={item.id}>
                     <ul>
                         <li className={mt.on}>POSTED ON {item.name_catagory}</li>
                         <li><h1>{item.tittle}</h1></li>
-                        <li><p>By {item.user_name} |  {item.date} </p></li>
+                        <li><p>By {item.name_user} |  {item.date} </p></li>
                         <li><p>{item.text}</p></li>
                         <li><button>Read More</button></li>
                     </ul>
                 </div>
-                
-            ))}
         </div>
+         ))}
          <div className={mt.co}>
             <div className={mt.tit}>
                 <h1>Featured Post</h1>
@@ -72,7 +72,7 @@ useEffect(() => {
                 <div key={item.id}>
                     <ul>
                         <li><img src={item.img} alt="" /></li>
-                        <li><p className={mt.by}>By {item.id_user} |  {item.date} </p></li>
+                        <li><p className={mt.by}>By {item.name_user} |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                         <li><p>{item.text}</p></li>
                         <li><button>Read More</button></li>
@@ -85,7 +85,7 @@ useEffect(() => {
                 {data.map((item) => (
                 <div key={item.id}>
                     <ul>
-                        <li><p className={mt.by}>By {item.id_user} |  {item.date} </p></li>
+                        <li><p className={mt.by}>By {item.name_user} |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                     </ul>
                 </div>
