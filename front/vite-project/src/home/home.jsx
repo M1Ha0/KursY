@@ -24,7 +24,8 @@ export default function Home() {
   const [isError, setIsError] = useState(false);
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-
+// if(key=="date") return new Date(value)
+//     return value
 useEffect(() => {
   fetch('http://localhost:3000/api/main')
   .then(res => res.json())

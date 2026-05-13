@@ -1,7 +1,8 @@
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-
+import si from '../signIn/signIn.module.scss'
+import { useNavigate  } from 'react-router-dom';
 export default function SignIn() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -14,7 +15,7 @@ export default function SignIn() {
   const [isError, setIsError] = useState(false);
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-
+  const navigate = useNavigate() 
  useEffect(() => {
         axios.interceptors.request.use((config) => {
             const currentToken = localStorage.getItem('token');
@@ -29,7 +30,7 @@ export default function SignIn() {
         e.preventDefault();
         setMessage('');
         setLoading(true);
-      
+        
         try {
             const response = await axios.post('http://localhost:3000/api/auth/login', {
                 name_user: loginUsername,
@@ -40,20 +41,18 @@ export default function SignIn() {
             setToken(newToken);
             setUser(response.data.user);
             localStorage.setItem('token', newToken);
-
             setMessage('✅ Вход успешен!');
-            loadData(); 
-
-            setLoginUsername('');
+        
+            setLoginUsername(''); 
             setLoginPassword('');
+            navigate('/')
         } catch (error) {
             setMessage(error.response?.data?.error || 'Ошибка входа');
             setIsError(true);
-        } finally {
-            setLoading(false);
-        }
+        } 
+
     };
-    console.log(handleLogin.response)
+    
      const handleLogout = () => {
         setUser(null);
         setToken(null);
@@ -64,8 +63,7 @@ export default function SignIn() {
     };
   return (
     <>
-      <div className="auth-container">
-            <div >
+            <div className={si.authcontainer}>
                 <h3>Вход</h3>
                 <form onSubmit={handleLogin}>
                     <input
@@ -84,8 +82,9 @@ export default function SignIn() {
                     />
                     <button type="submit" onClick={handleLogin} >Войти</button>
                 </form>
+                <p>
+                    Нет аккаунта? <Link to = {'signup'}>регистрация</Link>
+                </p>
             </div>
-        </div>
-        <Link to = {'signup'}>Регистрация</Link>
     </>
   )}

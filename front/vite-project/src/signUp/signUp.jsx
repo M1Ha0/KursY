@@ -1,8 +1,10 @@
 import { useState,useEffect } from 'react'
 import axios from 'axios'
-import aaa from '../signUp/signUp.module.scss'
-
+import { Link } from 'react-router-dom';
+import aaa from '../signIn/signIn.module.scss'
+import { useNavigate  } from 'react-router-dom';
 export default function SignUp() {
+  const navigate=useNavigate()
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
@@ -43,7 +45,9 @@ export default function SignUp() {
       setIsError(false);
       setUsername('');
       setPassword('');
-
+    
+      navigate('/sign')
+    
     } catch (error) {
       const errorMsg = error.response?.data?.error || 'Ошибка регистрации';
       setMessage(errorMsg);
@@ -56,10 +60,9 @@ export default function SignUp() {
 
 
   return (
-    <><main>
-      <div className={aaa.cont}>
-      <div className="form-container">
-        <h2>Регистрация</h2>
+    <>
+      <div className={aaa.authcontainer}>
+        <h3>Регистрация</h3>
         <form onSubmit={handleSubmits}>
           <input
             type="text"
@@ -82,14 +85,16 @@ export default function SignUp() {
             required
           />
           <button type="submit" >Зарегистрироваться</button>
+          
         </form>
+        <p>
+            Уже зарегистрировался? <Link to = {'/sign'}>Войди</Link>
+        </p>
         {message && (
           <div className={isError ? 'error' : 'success'}>
             {message}
           </div>
         )}
       </div>
-    </div>
-   </main>
     </>
   )}
