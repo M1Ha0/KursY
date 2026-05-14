@@ -6,6 +6,16 @@ import eco from '../home/assets/eco.png'
 import bus from '../home/assets/bus.png'
 import star from '../home/assets/star.png'
 import tech from '../home/assets/tech.png'
+import l from '../home/assets/Featured.png'
+import l1 from '../home/assets/Logo1.png'
+import l2 from '../home/assets/Logo2.png'
+import l3 from '../home/assets/Logo3.png'
+import l4 from '../home/assets/Logo4.png'
+import l5 from '../home/assets/Logo5.png'
+import fac from '../home/assets/fac.png'
+import inst from '../home/assets/inst.png'
+import twit from '../home/assets/twit.png'
+import lin from '../home/assets/lin.png'
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -17,6 +27,7 @@ export default function Home() {
   const [data, setData] = useState([])
   const [datai, setDatai] = useState([])
   const [datacat, setDatacat] = useState([])
+  const [datauser, setDatauser] = useState([])
   const [oldPrice,setOldPrice] = useState('')
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -31,7 +42,11 @@ useEffect(() => {
   .then(res => res.json())
   .then(data => setData(data))
 }, [])
-
+// useEffect(() => {
+//   fetch('http://localhost:3000/api/getuser')
+//   .then(res => res.json())
+//   .then(datauser => setDatauser(datauser))
+// }, [])
 useEffect(() => {
   fetch('http://localhost:3000/api/getcat')
   .then(res => res.json())
@@ -114,7 +129,6 @@ useEffect(() => {
             </div>
          </div>
          <div className={mt.cater}>
-            
             <section>
                  <h1>Choose A Catagory</h1>
                  <div  className={mt.orii}>
@@ -128,12 +142,39 @@ useEffect(() => {
                 </div>
             </section>
          </div>
+         {/* <div className={mt.liAuth}>
+            <h2>List of Authors</h2>
+            <section>
+                {datauser.map((item) => (
+                <div key={item.id}>
+                    <ul>
+                        <li><img src={item.avatar} alt="" /></li>
+                        <li><p className={mt.by}>{item.name_user}</p></li>
+                        <div>
+                            <img src={fac} alt="" />
+                            <img src={inst} alt="" />
+                            <img src={twit} alt="" />
+                            <img src={lin} alt="" />
+                        </div>
+                    </ul>
+                </div>
+                 ))}
+            </section>
+         </div> */}
+         <div className={mt.logocount}>
+            <img src={l} alt="" />
+            <img src={l1} alt="" />
+            <img src={l2} alt="" />
+            <img src={l3} alt="" />
+            <img src={l4} alt="" />
+            <img src={l5} alt="" />
+         </div>
          <div className={mt.nadf}>  
-                    <div>
-                        <h3>Join our team to be a part <br/>of our story</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <br/>elit, sed do eiusmod tempor incididunt.</p>
-                        <button>Join Now</button>
-                    </div>
+                <div>
+                    <h3>Join our team to be a part <br/>of our story</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing <br/>elit, sed do eiusmod tempor incididunt.</p>
+                    <button>Join Now</button>
+                </div>
          </div>
     </>
     )
