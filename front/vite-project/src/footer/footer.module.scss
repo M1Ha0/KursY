@@ -1,6 +1,9 @@
 *{
     margin: 0;
     padding: 0;
+    input{
+        outline: none;
+    }
 }
 footer{
     background-color: #232536;
@@ -78,6 +81,8 @@ footer{
             vertical-align: middle;
             background-color: #FFD050;
             color: #232536;
+            outline: none;
+            border: none;
         }
         h2{
             font-family: Sen;

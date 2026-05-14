@@ -128,6 +128,13 @@ useEffect(() => {
                 </div>
             </section>
          </div>
+         <div className={mt.nadf}>  
+                    <div>
+                        <h3>Join our team to be a part <br/>of our story</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <br/>elit, sed do eiusmod tempor incididunt.</p>
+                        <button>Join Now</button>
+                    </div>
+         </div>
     </>
     )
 }
