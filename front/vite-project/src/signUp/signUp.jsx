@@ -13,6 +13,7 @@ export default function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userAge, setUserAge] = useState('')
+  const [email, setemail] = useState('')
   const [isError, setIsError] = useState(false);
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -39,6 +40,7 @@ export default function SignUp() {
         name_user:username,
         password:password,
         age_user:userAge,
+        email:email
       });
 
       setMessage(response.data.message);
@@ -71,6 +73,12 @@ export default function SignUp() {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
+          <input type="text"
+            placeholder='Email'
+            value={email}
+            onChange={(e)=> setemail(e.target.value)}
+            required
+          />
           <input
             type="password"
             placeholder="Пароль"
@@ -79,7 +87,7 @@ export default function SignUp() {
             required
           />
           <input type="text"
-            placeholder='Age'
+            placeholder='Возраст'
             value={userAge}
             onChange={(e)=> setUserAge(e.target.value)}
             required

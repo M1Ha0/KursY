@@ -42,11 +42,11 @@ useEffect(() => {
   .then(res => res.json())
   .then(data => setData(data))
 }, [])
-// useEffect(() => {
-//   fetch('http://localhost:3000/api/getuser')
-//   .then(res => res.json())
-//   .then(datauser => setDatauser(datauser))
-// }, [])
+useEffect(() => {
+  fetch('http://localhost:3000/api/getuser')
+  .then(res => res.json())
+  .then(datauser => setDatauser(datauser))
+}, [])
 useEffect(() => {
   fetch('http://localhost:3000/api/getcat')
   .then(res => res.json())
@@ -84,7 +84,7 @@ useEffect(() => {
             </div>
          <section className={mt.podco}>
             <div className={mt.leftCO}>
-                {data.map((item) => (
+                {datai.map((item) => (
                 <div key={item.id}>
                     <ul>
                         <li><img src={item.img} alt="" /></li>
@@ -96,18 +96,16 @@ useEffect(() => {
                 </div>
                  ))}
             </div>
-            <nav>
                  <div className={mt.rightCO}>
                 {data.map((item) => (
                 <div key={item.id}>
                     <ul>
-                        <li><p className={mt.by}>By {item.name_user} |  {item.date} </p></li>
+                        <li><p className={mt.by}>By <p className={mt.name}>{item.name_user}</p> |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                     </ul>
                 </div>
                  ))}
             </div>
-            </nav>
          </section>
          </div>
          <div className={mt.hi}>
@@ -142,14 +140,15 @@ useEffect(() => {
                 </div>
             </section>
          </div>
-         {/* <div className={mt.liAuth}>
+         <div className={mt.liAuth}>
             <h2>List of Authors</h2>
             <section>
                 {datauser.map((item) => (
-                <div key={item.id}>
+                <div  className={mt.use} key={item.id}>
                     <ul>
                         <li><img src={item.avatar} alt="" /></li>
-                        <li><p className={mt.by}>{item.name_user}</p></li>
+                        <li><h3 className={mt.by}>{item.name_user}</h3></li>
+                        <li><p className={mt.by}>{item.email}</p></li>
                         <div>
                             <img src={fac} alt="" />
                             <img src={inst} alt="" />
@@ -160,7 +159,7 @@ useEffect(() => {
                 </div>
                  ))}
             </section>
-         </div> */}
+         </div>
          <div className={mt.logocount}>
             <img src={l} alt="" />
             <img src={l1} alt="" />

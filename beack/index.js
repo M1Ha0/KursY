@@ -83,14 +83,14 @@ app.get('/api/getcat', async (req, res) => {
         res.status(500).json({ error: `Server error: ${error.message}` })
     }
 })
-// app.get('/api/getuser', async (req, res) => {
-//     try {
-//         const result = await pool.query('SELECT * FROM users')
-//         res.json(result.rows)
-//     } catch (error) {
-//         res.status(500).json({ error: `Server error: ${error.message}` })
-//     }
-// })
+app.get('/api/getuser', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM users')
+        res.json(result.rows)
+    } catch (error) {
+        res.status(500).json({ error: `Server error: ${error.message}` })
+    }
+})
 app.get('/api/getid:id', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM post join catagory ON post.id_catagory = catagory.id_catagory join users on post.id_user = users.id WHERE id = 1')
@@ -185,17 +185,17 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
 })
 
 app.post('/api/auth/register', async (req, res) => {
-    const { name_user, password, age_user } = req.body
+    const { name_user, password, age_user, email } = req.body
 
-    if (!name_user || !password || !age_user) {
+    if (!name_user || !password || !age_user || !email) {
         return res.status(400).json({ error: 'Заполни все поля' })
     }
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10)
         const result = await pool.query(
-            'INSERT INTO users (name_user, password, age_user, role) VALUES ($1, $2, $3, $4) RETURNING id, name_user, role',
-            [name_user, hashedPassword, age_user, 'user']
+            'INSERT INTO users (name_user, password, age_user, role, email) VALUES ($1, $2, $3, $4 ,$5) RETURNING id, name_user, role',
+            [name_user, hashedPassword, age_user, 'user',email]
         )
 
         res.status(201).json(result.rows[0])
