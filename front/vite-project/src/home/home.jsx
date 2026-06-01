@@ -16,6 +16,7 @@ import fac from '../home/assets/fac.png'
 import inst from '../home/assets/inst.png'
 import twit from '../home/assets/twit.png'
 import lin from '../home/assets/lin.png'
+import spec from '../home/assets/spec.png'
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -53,7 +54,7 @@ useEffect(() => {
   .then(datacat => setDatacat(datacat))
 }, [])
 useEffect(() => {
-  fetch('http://localhost:3000/api/getid:1')
+  fetch('http://localhost:3000/api/getid:4')
   .then(res => res.json())
   .then(datai => setDatai(datai))
 }, [])
@@ -67,7 +68,7 @@ useEffect(() => {
                     <ul>
                         <li className={mt.on}>POSTED ON {item.name_catagory}</li>
                         <li><h1>{item.tittle}</h1></li>
-                        <li><p>By {item.name_user} |  {item.date} </p></li>
+                        <li><p>By </p><p className={mt.nf}>{item.name_user}</p><p> |  {item.date} </p></li>
                         <li><p>{item.text}</p></li>
                         <li><button>Read More</button></li>
                     </ul>
@@ -88,7 +89,7 @@ useEffect(() => {
                 <div key={item.id}>
                     <ul>
                         <li><img src={item.img} alt="" /></li>
-                        <li><p className={mt.by}>By {item.name_user} |  {item.date} </p></li>
+                        <li><p className={mt.by}>By</p> <p className={mt.name}>{item.name_user}</p><p className={mt.by}> |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                         <li><p>{item.text}</p></li>
                         <li><button>Read More</button></li>
@@ -100,7 +101,7 @@ useEffect(() => {
                 {data.map((item) => (
                 <div key={item.id}>
                     <ul>
-                        <li><p className={mt.by}>By <p className={mt.name}>{item.name_user}</p> |  {item.date} </p></li>
+                        <li><p className={mt.by}>By</p> <p className={mt.name}>{item.name_user}</p><p className={mt.by}> |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                     </ul>
                 </div>
@@ -140,6 +141,17 @@ useEffect(() => {
                 </div>
             </section>
          </div>
+         <div className={mt.whywe}>
+            <section>
+              <div>
+                <p>WHY WE STARTED</p>   
+                <h1>It started out as a simple<br/> idea and evolved into<br/> our passion</h1> 
+                <p className={mt.whe}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br/> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim<br/> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>       
+                <button>Discover our story &gt;</button>
+            </div>  
+            </section>
+            
+         </div>
          <div className={mt.liAuth}>
             <h2>List of Authors</h2>
             <section>
@@ -167,6 +179,40 @@ useEffect(() => {
             <img src={l3} alt="" />
             <img src={l4} alt="" />
             <img src={l5} alt="" />
+         </div>
+         <div className={mt.testi}>
+            <section>
+                <div className={mt.ritghtes}>
+                    <p>TESTIMONIALS</p>
+                    <h2>
+                        What people say about our blog
+                    </h2>
+                    <p className={mt.whe}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+                <div className={mt.line}></div>
+                <div className={mt.leftes}>
+                    <h4>
+                        Lorem ipsum dolor sit amet,<br/> consectetur adipiscing elit, sed do<br/> eiusmod tempor incididunt ut labore et<br/> dolore magna aliqua.
+                    </h4>
+                    <div className={mt.jon}>
+                        <div className={mt.jonathan}>
+                            <img src={spec} alt="" />
+                            <ul>
+                                <li>
+                                    <h4>Jonathan Vallem</h4>
+                                </li>
+                                <li>
+                                    <p className={mt.whe}>New york, USA</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className={mt.divbut}>
+                            <button className={mt.butt}>➜</button>
+                            <button className={mt.but} >➜</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
          </div>
          <div className={mt.nadf}>  
                 <div>

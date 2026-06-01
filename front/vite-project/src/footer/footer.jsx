@@ -1,4 +1,5 @@
 import { useState,useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import ft from '../footer/footer.module.scss'
 import fin from '../footer/assets/fin.png'
@@ -16,7 +17,7 @@ function Footer() {
             <img src={fin} alt="" />
             <ul>
                 <li>
-                    <a href="">Home</a>
+                     <Link to = {'/'}>Home</Link>
                 </li>
                 <li>
                     <a href="">Blog</a>
@@ -28,7 +29,7 @@ function Footer() {
                     <a href="">Contact us</a>
                 </li>
                 <li>
-                    <a>Privacy Policy</a>
+                     <Link to = {'priv'}>Privacy Policy</Link>
                 </li>
             </ul>
                    

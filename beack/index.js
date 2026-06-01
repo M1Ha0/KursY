@@ -93,7 +93,7 @@ app.get('/api/getuser', async (req, res) => {
 })
 app.get('/api/getid:id', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM post join catagory ON post.id_catagory = catagory.id_catagory join users on post.id_user = users.id WHERE id = 1')
+        const result = await pool.query('SELECT * FROM post join catagory ON post.id_catagory = catagory.id_catagory join users on post.id_user = users.id WHERE id =  4')
         res.json(result.rows)
     } catch (error) {
         res.status(500).json({ error: `Server error: ${error.message}` })

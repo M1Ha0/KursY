@@ -7,6 +7,8 @@ import Footer from './footer/footer.jsx'
 import {Routes,Route,Link} from 'react-router-dom'
 import SignIn from './signIn/signIn.jsx'
 import SignUp from './signUp/signUp.jsx'
+import Privat from './private/private.jsx'
+import Blog from './blog/blog.jsx'
 export default function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -30,6 +32,8 @@ export default function App() {
 <Header/>
 <Routes>
         <Route path='/' element={<Home/>} />
+        <Route path='priv' element={<Privat/>}/>
+        <Route path='blog' element={<Blog/>}/>
         <Route path='sign' element={<SignIn/>} />
         <Route path='/sign/signup' element={<SignUp/>} />
 </Routes>
