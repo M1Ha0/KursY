@@ -9,6 +9,9 @@ import SignIn from './signIn/signIn.jsx'
 import SignUp from './signUp/signUp.jsx'
 import Privat from './private/private.jsx'
 import Blog from './blog/blog.jsx'
+import AboutUs from './AboutUs/AboutUs.jsx'
+import Contact from './contact/contact.jsx'
+import Post from './Post/post.jsx'
 export default function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -24,8 +27,6 @@ export default function App() {
   const [isError, setIsError] = useState(false);
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-
-
   return (
     <>
 
@@ -34,6 +35,9 @@ export default function App() {
         <Route path='/' element={<Home/>} />
         <Route path='priv' element={<Privat/>}/>
         <Route path='blog' element={<Blog/>}/>
+        <Route path='about' element={<AboutUs/>}/>
+        <Route path='contact' element={<Contact/>}/>
+        <Route path="post/:id" element={<Post/>}/>
         <Route path='sign' element={<SignIn/>} />
         <Route path='/sign/signup' element={<SignUp/>} />
 </Routes>

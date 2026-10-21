@@ -19,10 +19,10 @@ function Header() {
                     <Link to = {'blog'}>Blog</Link>
                 </li>
                 <li>
-                    <a href="">About Us</a>
+                    <Link to = {'about'}>About Us</Link>
                 </li>
                 <li>
-                    <a href="">Contact us</a>
+                    <Link to = {'contact'}>Contact us</Link>
                 </li>
                 <li>
                     <Link to = {'sign'}><button>Subscribe</button></Link>

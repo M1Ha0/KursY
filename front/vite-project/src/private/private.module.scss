@@ -21,7 +21,7 @@ main{
 }
 .f{
     width: 100vw;
-    height: 30vh;
+    height: 25vh;
     display: flex;
     color: #232536;
     align-items: center;
@@ -42,7 +42,7 @@ main{
 }
 }
 .s{
-    width: 50vw;
+    width: 40vw;
     height: 25vh;
     display: flex;
     flex-direction: column;
@@ -59,8 +59,8 @@ main{
     }
 }
 .t{
-    width: 50vw;
-    height: 30vh;
+    width: 40vw;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -70,7 +70,7 @@ main{
         font-weight: 700;
         font-size: 32px;
         leading-trim: NONE;
-        line-height: 64px;
+        line-height: 40px;
         letter-spacing: -2px;
         color: #232536;
     }

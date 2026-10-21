@@ -20,13 +20,13 @@ function Footer() {
                      <Link to = {'/'}>Home</Link>
                 </li>
                 <li>
-                    <a href="">Blog</a>
+                    <Link to = {'blog'}>Blog</Link>
                 </li>
                 <li>
-                    <a href="">About Us</a>
+                    <Link to = {'about'}>About Us</Link>
                 </li>
                 <li>
-                    <a href="">Contact us</a>
+                    <Link to = {'contact'}>Contact us</Link>
                 </li>
                 <li>
                      <Link to = {'priv'}>Privacy Policy</Link>
@@ -37,7 +37,7 @@ function Footer() {
         <section>
                 <h2>Subscribe to our news letter to get<br></br> latest updates and news</h2>
                 <div>
-                    <input type="email" title='Enter Your Email'/>
+                    <input type="email" placeholder='Enter Your Email'/>
                     <button>Subscribe</button>
                 </div>
         </section>

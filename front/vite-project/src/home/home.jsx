@@ -17,6 +17,7 @@ import inst from '../home/assets/inst.png'
 import twit from '../home/assets/twit.png'
 import lin from '../home/assets/lin.png'
 import spec from '../home/assets/spec.png'
+import { Link, useNavigate  } from 'react-router-dom';
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -80,7 +81,8 @@ useEffect(() => {
                 <h1>Featured Post</h1>
                 <div>
                 <h1>All Posts</h1>
-                <a>View All</a>
+                {/* <a>View All</a> */}
+                <Link to = {'blog'}>View All</Link>
                 </div>
             </div>
          <section className={mt.podco}>
@@ -98,13 +100,15 @@ useEffect(() => {
                  ))}
             </div>
                  <div className={mt.rightCO}>
-                {data.map((item) => (
-                <div key={item.id}>
+                {data.slice(0, 5).map((item) => (
+                <Link className={mt.ahah} to={`post/${item.id}`} key={item.id} >
+                <div key={item.id} >
                     <ul>
                         <li><p className={mt.by}>By</p> <p className={mt.name}>{item.name_user}</p><p className={mt.by}> |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                     </ul>
                 </div>
+                </Link>
                  ))}
             </div>
          </section>
@@ -155,7 +159,7 @@ useEffect(() => {
          <div className={mt.liAuth}>
             <h2>List of Authors</h2>
             <section>
-                {datauser.map((item) => (
+                {datauser.slice(0, 4).map((item) => (
                 <div  className={mt.use} key={item.id}>
                     <ul>
                         <li><img src={item.avatar} alt="" /></li>

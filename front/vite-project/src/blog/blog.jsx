@@ -58,7 +58,27 @@ useEffect(() => {
                     <img src={item.img} alt="" />
                 </div>
         </div>
-         ))}       
+         ))}
+         <div className={blog.allpost}>
+          <section>
+            <h1 className={blog.alt}>All posts</h1>
+            <div className={blog.lineB}></div>
+            {data.map((item) => (
+                <div className={blog.post} key={item.id}>
+                  <img src={item.img} alt="" />
+                    <ul>
+                        <li><p className={blog.catname}>{item.name_catagory}</p></li>
+                        <li><h2>{item.tittle}</h2></li>
+                        <li><p>{item.text}</p></li>
+                    </ul>
+                </div>
+                 ))}
+                 <div className={blog.downN}>
+                    <h4>&lt; Prev </h4>
+                    <h3>Next &gt;</h3>
+                 </div>
+            </section>
+         </div>
         <div className={mt.cater}>
             <section>
                  <h1>All Category</h1>
