@@ -12,6 +12,8 @@ import Blog from './blog/blog.jsx'
 import AboutUs from './AboutUs/AboutUs.jsx'
 import Contact from './contact/contact.jsx'
 import Post from './Post/post.jsx'
+import Category from './Category/Category.jsx'
+import Author from './Author/Author.jsx'
 export default function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -38,6 +40,10 @@ export default function App() {
         <Route path='about' element={<AboutUs/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path="post/:id" element={<Post/>}/>
+        <Route path="category" element={<Category/>}/>
+        <Route path="category/:id" element={<Category/>}/>
+        <Route path="author" element={<Author/>}/>
+        <Route path="author/:id" element={<Author/>}/>
         <Route path='sign' element={<SignIn/>} />
         <Route path='/sign/signup' element={<SignUp/>} />
 </Routes>

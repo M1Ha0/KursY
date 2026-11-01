@@ -98,8 +98,8 @@ return (
                 {datauser.slice(0, 4).map((item) => (
                 <div  className={mt.use} key={item.id}>
                     <ul>
-                        <li><img src={item.avatar} alt="" /></li>
-                        <li><h3 className={mt.by}>{item.name_user}</h3></li>
+                        <li><Link to={`/author/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}><img src={item.avatar} alt="" /></Link></li>
+                        <li><Link to={`/author/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}><h3 className={mt.by}>{item.name_user}</h3></Link></li>
                         <li><p className={mt.by}>{item.email}</p></li>
                         <div>
                             <img src={fac} alt="" />

@@ -87,11 +87,11 @@ useEffect(() => {
                  <h1>All Category</h1>
                  <div  className={mt.orii}>
                      {datacat.map((item) => (
-                    <div className={mt.catka} key={item.id}>
+                    <Link to={`/category/${item.id_catagory}`} className={mt.catka} key={item.id_catagory || item.id}>
                         <img src={item.imgcat} alt="" />
                         <h3>{item.name_catagory}</h3>
                         <p>{item.description}</p>
-                    </div>
+                    </Link>
                     ))}
                 </div>
             </section>
