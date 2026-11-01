@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import axios from 'axios'
 import mt from '../home/home.module.scss'
 import blog from './blog.module.scss'
+import { Link, useNavigate  } from 'react-router-dom';
 function Blog() {
 const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -53,7 +54,7 @@ useEffect(() => {
                         <li><h2>{item.tittle}</h2></li>
                         <li><p className={blog.byby}>By </p><p className={blog.bybyf}>{item.name_user}</p><p> |  {item.date} </p></li>
                         <li><p className={blog.textb}>{item.text}</p></li>
-                        <li><button>Read More</button></li>
+                        <li><Link className={mt.ahah} to={`/post/${item.id_post}`} key={item.id_post} ><button>Read More</button></Link></li>
                     </ul>
                     <img src={item.img} alt="" />
                 </div>
@@ -64,6 +65,7 @@ useEffect(() => {
             <h1 className={blog.alt}>All posts</h1>
             <div className={blog.lineB}></div>
             {data.map((item) => (
+              <Link className={mt.ahah} to={`/post/${item.id_post}`} key={item.id_post} >
                 <div className={blog.post} key={item.id}>
                   <img src={item.img} alt="" />
                     <ul>
@@ -72,6 +74,7 @@ useEffect(() => {
                         <li><p>{item.text}</p></li>
                     </ul>
                 </div>
+              </Link>
                  ))}
                  <div className={blog.downN}>
                     <h4>&lt; Prev </h4>

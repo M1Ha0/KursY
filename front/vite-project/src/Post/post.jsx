@@ -24,7 +24,6 @@ const Post = () => {
                 <h1>{item.tittle}</h1>
             </div>
         ))}
-            <p>zhopa</p>
           </>
     );
 };

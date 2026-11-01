@@ -71,7 +71,7 @@ useEffect(() => {
                         <li><h1>{item.tittle}</h1></li>
                         <li><p>By </p><p className={mt.nf}>{item.name_user}</p><p> |  {item.date} </p></li>
                         <li><p>{item.text}</p></li>
-                        <li><button>Read More</button></li>
+                        <li><Link className={mt.ahah} to={`post/${item.id_post}`} key={item.id_post} ><button>Read More</button></Link></li>
                     </ul>
                 </div>
         </div>
@@ -81,7 +81,6 @@ useEffect(() => {
                 <h1>Featured Post</h1>
                 <div>
                 <h1>All Posts</h1>
-                {/* <a>View All</a> */}
                 <Link to = {'blog'}>View All</Link>
                 </div>
             </div>
@@ -94,14 +93,14 @@ useEffect(() => {
                         <li><p className={mt.by}>By</p> <p className={mt.name}>{item.name_user}</p><p className={mt.by}> |  {item.date} </p></li>
                         <li><h1>{item.tittle}</h1></li>
                         <li><p>{item.text}</p></li>
-                        <li><button>Read More</button></li>
+                        <li><Link className={mt.ahah} to={`post/${item.id_post}`} key={item.id_post} ><button>Read More</button></Link></li>
                     </ul>
                 </div>
                  ))}
             </div>
                  <div className={mt.rightCO}>
                 {data.slice(0, 5).map((item) => (
-                <Link className={mt.ahah} to={`post/${item.id}`} key={item.id} >
+                <Link className={mt.ahah} to={`post/${item.id_post}`} key={item.id_post} >
                 <div key={item.id} >
                     <ul>
                         <li><p className={mt.by}>By</p> <p className={mt.name}>{item.name_user}</p><p className={mt.by}> |  {item.date} </p></li>
